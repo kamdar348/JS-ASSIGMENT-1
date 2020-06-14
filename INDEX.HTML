@@ -1,0 +1,50 @@
+<html>
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>js assigment 1</title>
+<script src"app.js"></script>
+</head>
+<body>
+<h2>Mark Sheet</h2>
+		<p>Total Marks: 300</p>
+		<p>Marks obtained: <span id="marks_obtained"></span></p>
+		<p>Percentage: <span id="percentage"></span></p>
+		<p>Grade: <span id="grade"></span></p>
+		<p>Remarks: <span id="remarks"></span></p>
+
+		<button id="get_result" type="button" onclick="MakeResult()">Get Result</button>
+		
+		<script>
+			function MakeResult() {
+				var math_marks = window.prompt("Math Marks");
+				var english_marks = window.prompt("English Marks");
+				var urdu_marks = window.prompt("Urdu Marks");
+				var marks_obtained = parseInt(math_marks) + parseInt(english_marks) + parseInt(urdu_marks);
+				var percentage = marks_obtained / 300 * 100;
+
+				var grade, remarks;
+
+				document.getElementById("marks_obtained").innerHTML = marks_obtained;
+				document.getElementById("percentage").innerHTML = parseInt(percentage) + "%";
+
+				if(percentage >= 80) {
+					grade = "A-one";
+					remarks = "Excellent";
+				} else if ( percentage >= 70) {
+					grade = "A";
+					remarks = "Good";
+				} else if ( percentage >= 60) {
+					grade = "B";
+					remarks = "You need to improve";
+				} else if (percentage < 60) {
+					grade = "Fail";
+					remarks = "Sorry";
+				}
+
+				document.getElementById("grade").innerHTML = grade;
+				document.getElementById("remarks").innerHTML = remarks;
+			}
+		</script>
+</body>
+</html>
